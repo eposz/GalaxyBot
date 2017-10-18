@@ -14,7 +14,7 @@ bot.on('message', async message => {
     let cate = "cool kid too";
     let teamav = "nerd";
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
-    const swearWords = ["nig nog", "nigger", "negro", "n1g n0g", "n3gr0", "negr0", "n1gger", "n1g nog", "nig n0g", "n.i.g.g.e.r", "n.1.g.g.e.r", "n.i.g.g.3.r", "n.1.g.g.3.r", "n 1 g g 3 r", "n i g g 3 r", "n 1 g g e r", "n i g g e r", "wetback", "faggot", "nlgger", "nlgg3r", "testicles", "penis", "p3n1s", "p3nis", "pen1s", "vagina", "vag1na", "cunt", "v@gina", "v@g1na", "t3st1cl3s", "test1cl3s", "t3sticl3s", "t3sticles", "t3sticles", "test1cles", "testicl3s", "cuck", "c uck", "c u ck", "c u c k", "cu ck", "cuc k", "shit", "sh1t", "s h i t", "s h 1 t", "slag", "sl@g", "slut", "retard", "nignog"];
+    const swearWords = ["Add words you would like to filter here", "As arrays, of course"];
     const swearReply = [
           "You looking for a fight? [Don't Swear]",
           "I'll smack you! [Don't Swear]",
@@ -39,7 +39,8 @@ bot.on('message', async message => {
     if(swearWords.some(word => message.content.toLowerCase().includes(word)) ) {
     if(message.author.id === "134133271750639616") return;
     if(message.guild.id !== "204965774618656769") return;
-    if(message.author.id === "338397690641645568") return
+    //Remove this line to make it work for other servers
+    if(message.author.id === "338397690641645568") return;
     bot.channels.get("357904007630684171").send({embed: {
   color: 501264,
   description: `${message.author.username} with an id of ${message.author.id} \`${bot.ping.toFixed(0)}ms\` was caught by the filter saying \`${message.content}\``
