@@ -9,10 +9,6 @@ const { version } = require('discord.js');
 bot.on('message', async message => {
    // this sets the prefix
     let prefix = "g!";
-    let stg = "g!setgame";
-    let winter = "cool kid";
-    let cate = "cool kid too";
-    let teamav = "nerd";
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const swearWords = ["Add words you would like to filter here", "As arrays, of course"];
     const swearReply = [
