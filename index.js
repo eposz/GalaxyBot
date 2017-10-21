@@ -4526,24 +4526,17 @@ bot.channels.get('350966037958623233').send({embed: {
 
         if(message.content.startsWith(prefix + "kick")) {
           if(message.guild.id !== "204965774618656769") return;
-    // This command must be limited to mods and admins. In this example we just hardcode the role names.
-    // Please read on Array.some() to understand this bit: 
-    // https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/some?
     if(!message.member.roles.some(r=>["Admins", "Moderator"].includes(r.name)) ) return message.reply(":no_entry: You don't have permission to kick :no_entry:");
     
-    // Let's first check if we have a member and if we can kick them!
-    // message.mentions.members is a collection of people that have been mentioned, as GuildMembers.
     let member = message.mentions.members.first();
         if(message.mentions.users.size < 1) return message.channel.send('You must mention someone to kick')
     if(!member.kickable) return message.reply("Can't kick this user.");
     if(member.id === "200627218299355136") return message.reply("Can't kick this user.")
     
-    // slice(1) removes the first part, which here should be the user mention!
     let reason = args.slice(2).join(' ');
     if(!reason)
       return message.reply("Please indicate a reason for the kick!");
     
-    // Now, time for a swift kick in the nuts!
     await member.kick(reason + "~GalaxyBot Kick").catch(error => message.reply(`Sorry ${message.author} I couldn't kick because of : ${error}`));
     message.channel.send(`**${message.author.username}** Kicked **${member.user.username}** for: \`${reason}\``);
     bot.channels.get("361967935041830932").send({embed: {
@@ -4562,24 +4555,18 @@ bot.channels.get('350966037958623233').send({embed: {
 
           if(message.content.startsWith(prefix + "ban")) {
             if(message.guild.id !== "204965774618656769") return;
-    // This command must be limited to mods and admins. In this example we just hardcode the role names.
-    // Please read on Array.some() to understand this bit: 
-    // https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/some?
+		  
     if(!message.member.roles.some(r=>["Admins"].includes(r.name)) ) return message.reply(":no_entry: You don't have permission to ban :no_entry:");
     
-    // Let's first check if we have a member and if we can kick them!
-    // message.mentions.members is a collection of people that have been mentioned, as GuildMembers.
     let member = message.mentions.members.first();
         if(message.mentions.users.size < 1) return message.channel.send('You must mention someone to ban')
     if(!member.bannable) return message.reply("Can't ban this user.");
     if(member.id === "361967935041830932") return message.reply("Can't ban this user.")
     
-    // slice(1) removes the first part, which here should be the user mention!
     let reason = args.slice(2).join(' ');
     if(!reason)
       return message.reply("Please indicate a reason for the ban!");
     
-    // Now, time for a swift kick in the nuts!
     await member.ban(reason + "~GalaxyBot Ban").catch(error => message.reply(`Sorry ${message.author} I couldn't ban because of : \`${error}\``));
     message.channel.send(`**${message.author.username}** Banned **${member.user.username}** for: \`${reason}\``);
     bot.channels.get("361967935041830932").send({embed: {
