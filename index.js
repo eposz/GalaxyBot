@@ -5,6 +5,8 @@ const config = require('./config.json');
 const moment = require('moment');
 require('moment-duration-format');
 const { version } = require('discord.js');
+var Trello = require('trello');
+var trello = new Trello("APIKEY", "APITOKEN");
 
 bot.on('message', async message => {
    // this sets the prefix
@@ -46,19 +48,7 @@ bot.on('message', async message => {
 }
     if (!message.content.startsWith(prefix)) return;
     if (message.author.bot) return;
-    if (message.author.id === "221602423746199552") return message.channel.send("para is banned from using this bot")
-    if (message.channel.id === "217786280895971330" && message.author.id !== "200627218299355136" && message.author.id !== "151829152239058945" && message.author.id !== "214360468058406912" && message.author.id !== "174927339354849280" && message.author.id !== "184192896751239170" && message.author.id !== "193982780378447872" && message.author.id !== "179091809111113728" && message.content.toLowerCase() !== prefix + "apoc" && !message.content.toLowerCase().startsWith(prefix +"kick") && !message.content.toLowerCase().startsWith(prefix +"warn") && !message.content.toLowerCase().startsWith(prefix +"mute") && !message.content.toLowerCase().startsWith(prefix +"ban")) return message.channel.send(`${message.author.username}, please use bot commands in <#204966054462619650>`)
-    if (message.channel.id === "204965774618656769" && message.author.id !== "200627218299355136" && message.author.id !== "151829152239058945" && message.author.id !== "214360468058406912" && message.author.id !== "174927339354849280" && message.author.id !== "184192896751239170" && message.author.id !== "193982780378447872" && message.author.id !== "179091809111113728" && message.content.toLowerCase() !== prefix + "apoc" && !message.content.toLowerCase().startsWith(prefix +"kick") && !message.content.toLowerCase().startsWith(prefix +"warn") && !message.content.toLowerCase().startsWith(prefix +"mute") && !message.content.toLowerCase().startsWith(prefix +"ban")) return message.channel.send(`${message.author.username}, please use bot commands in <#204966054462619650>`)
-    if (message.channel.id === "350873216291700739" && message.author.id !== "200627218299355136" && message.author.id !== "151829152239058945" && message.author.id !== "214360468058406912" && message.author.id !== "174927339354849280" && message.author.id !== "184192896751239170" && message.author.id !== "193982780378447872" && message.author.id !== "179091809111113728" && message.content.toLowerCase() !== prefix + "apoc" && !message.content.toLowerCase().startsWith(prefix +"kick") && !message.content.toLowerCase().startsWith(prefix +"warn") && !message.content.toLowerCase().startsWith(prefix +"mute") && !message.content.toLowerCase().startsWith(prefix +"ban")) return message.channel.send(`${message.author.username}, please use bot commands in <#204966054462619650>`)
-    if (message.channel.id === "342735946573283328" && message.author.id !== "200627218299355136" && message.author.id !== "151829152239058945" && message.author.id !== "214360468058406912" && message.author.id !== "174927339354849280" && message.author.id !== "184192896751239170" && message.author.id !== "193982780378447872" && message.author.id !== "179091809111113728" && message.content.toLowerCase() !== prefix + "apoc" && !message.content.toLowerCase().startsWith(prefix +"kick") && !message.content.toLowerCase().startsWith(prefix +"warn") && !message.content.toLowerCase().startsWith(prefix +"mute") && !message.content.toLowerCase().startsWith(prefix +"ban")) return message.channel.send(`${message.author.username}, please use bot commands in <#204966054462619650>`)
-    if (message.author.id === "nothing") return message.channel.send(`Blacklisted from this bot due to repeated offences. DM <@200627218299355136> for an appeal.` && bot.channels.get("350966037958623233").send(`${message.author.username} attempted to use this bot whilst being blacklisted`))
 
-    //Unblocked Seans's, purples, caymons, arias, speeds, communitythingyguy's, feral's and my ID.
-
-
-    if (message.content.toLowerCase().startsWith(prefix + "appeal")) {
-      message.channel.send(`DM <@200627218299355136> for an appeal.`)
-    } else
 
     if (message.content.toLowerCase().startsWith(prefix + "info tango")) {
                   message.channel.send({embed: {
@@ -4308,7 +4298,7 @@ message.channel.stopTyping(true);
     
         if (message.content.startsWith(prefix + "shutdown"))
         {
-            if (message.author.id !== "200627218299355136") return message.channel.send("Sorry, only the bot owner can do that!")
+            if (message.author.id !== "AUTHORID") return message.channel.send("Sorry, only the bot owner can do that!")
         message.channel.send({embed: {
           color: 15209750,
           description: "The bot process has been shut down!"
@@ -4326,7 +4316,7 @@ message.channel.stopTyping(true);
     
         if (message.content.startsWith(prefix + "sendmsg"))
         {
-            if (message.author.id !== "200627218299355136") return message.channel.send("Sorry, only the bot owner can do that!")
+            if (message.author.id !== "AUTHORID") return message.channel.send("Sorry, only the bot owner can do that!")
              message.channel.send({embed: {
               color: 501264,
               description: "The message has been sent!"
@@ -4342,7 +4332,7 @@ message.channel.stopTyping(true);
     
         if (message.content.startsWith(prefix + "sendmessage"))
         {
-            if (message.author.id !== "200627218299355136") return message.channel.send("Sorry, only the bot owner can do that!")
+            if (message.author.id !== "AUTHORID") return message.channel.send("Sorry, only the bot owner can do that!")
              message.channel.send({embed: {
               color: 501264,
               description: "The message has been sent!"
@@ -4357,7 +4347,7 @@ message.channel.stopTyping(true);
         } else
 
         if(message.content.toLowerCase().startsWith(prefix + 'setnickname')) {
-          if (message.author.id !== "200627218299355136") return message.channel.send("Sorry, only the bot owner can do that!")
+          if (message.author.id !== "AUTHORID") return message.channel.send("Sorry, only the bot owner can do that!")
             message.channel.send('Nickname set!')
           bot.users.get(`${message.content.substring(14,32)}`).setNickname(`${message.content.substring(34,66)}`)
 
@@ -4366,7 +4356,7 @@ message.channel.stopTyping(true);
 
         if (message.content.startsWith(prefix +"setstatus"))
         {
-            if (message.author.id !== "200627218299355136") return message.channel.send("Sorry, only the bot owner can use this command!")
+            if (message.author.id !== "AUTHORID") return message.channel.send("Sorry, only the bot owner can use this command!")
                  message.channel.send({embed: {
               color: 15288888,
               description: "The status has been updated!"
@@ -4384,7 +4374,7 @@ message.channel.stopTyping(true);
             }else
         if (message.content.startsWith(prefix +"statusdef"))
         {
-            if (message.author.id !== "200627218299355136") return message.channel.send("Sorry, only the bot owner can use this command!")
+            if (message.author.id !== "AUTHORID") return message.channel.send("Sorry, only the bot owner can use this command!")
                 message.channel.send({embed: {
               color: 15288888,
               description: "The status has been reset!"
@@ -4403,7 +4393,7 @@ message.channel.stopTyping(true);
                 
         if (message.content.startsWith(prefix +"setstream"))
         {
-            if (message.author.id !== "200627218299355136") return message.channel.send("Sorry, only the bot owner can use this command!")
+            if (message.author.id !== "AUTHORID") return message.channel.send("Sorry, only the bot owner can use this command!")
                 message.channel.send({embed: {
               color: 7479999,
               description: "The stream has been updated!"
@@ -4423,7 +4413,7 @@ message.channel.stopTyping(true);
         
             if (message.content.startsWith(prefix +"streamdef"))
         {
-            if (message.author.id !== "200627218299355136") return message.channel.send("Sorry, only the bot owner can use this command!")
+            if (message.author.id !== "AUTHORID") return message.channel.send("Sorry, only the bot owner can use this command!")
                  message.channel.send({embed: {
               color: 7479999,
               description: "The stream has been reset!"
@@ -4443,7 +4433,7 @@ bot.channels.get('350966037958623233').send({embed: {
              }else
               
              if(message.content.toLowerCase().startsWith(prefix + 'eval')) {
-              if(message.author.id !== "200627218299355136") return message.channel.send("Only the bot owner can use evaluate due to security reason >:(");
+              if(message.author.id !== "AUTHORID") return message.channel.send("Only the bot owner can use evaluate due to security reason >:(");
     try {
       const code = `${message.content.substring(7,999999)}`;
       let evaled = eval(code);
@@ -4460,7 +4450,7 @@ bot.channels.get('350966037958623233').send({embed: {
        
              if (message.content.startsWith(prefix +"setname"))
         {
-            if (message.author.id !== "200627218299355136") return message.channel.send("Sorry, only the bot owner can use this command!")
+            if (message.author.id !== "AUTHORID") return message.channel.send("Sorry, only the bot owner can use this command!")
                 message.reply(`The bot name has successfully been changed to ${message.content.substring(10,42)}!`)
                 console.log(`The bot name has been changed to ${message.content.substring(10,42)}`)
                 bot.user.setUsername(`${message.content.substring(10,42)}`)
@@ -4476,7 +4466,7 @@ bot.channels.get('350966037958623233').send({embed: {
        
             if (message.content.startsWith(prefix +"namedef"))
         {
-            if (message.author.id !== "200627218299355136") return message.channel.send("Sorry, only the bot owner can use this command!")
+            if (message.author.id !== "AUTHORID") return message.channel.send("Sorry, only the bot owner can use this command!")
                 message.reply("The bot name has successfully been reset to GalaxyBot!")
                 console.log(`The bot name has been reset to GalaxyBot`)
                 bot.user.setUsername("GalaxyBot")
@@ -4489,40 +4479,6 @@ bot.channels.get('350966037958623233').send({embed: {
             
 
          } else 
-         
-         if(message.content.toLowerCase().startsWith(prefix + "7202947892304792")) {
-        let userMention = message.mentions.users.first();
-        if(message.mentions.users.size < 1) return message.channel.send(`User has been smash with banne`);
-        if(message.mentions.users.first().id === "200627218299355136") return message.channel.send(`cant smashe hammer on ${userMention.username}`)
-        message.channel.send(`${userMention.username}#${userMention.discriminator} has been smash with banne`)
-
-      } else
-         
-         if(message.content.toLowerCase() === prefix + "apoc") {
-        let userMention = message.mentions.users.first();
-        if(message.mentions.users.size < 1) return message.channel.send(`User has been deafened by touhou music`);
-        if(message.mentions.users.first().id === "200627218299355136") return message.channel.send(`cant deafen ${userMention.username}`)
-        message.channel.send(`${userMention.username} has been deafened by touhou music`)
-                 
-      } else 
-         
-         if(message.content.toLowerCase().startsWith(prefix + "why")) {
-        if(message.author.id !== "200627218299355136") return;
-        message.channel.send(`https://cdn.discordapp.com/attachments/142706044416688128/339161936795271169/but_WHY.png`)
-
-        } else 
-         
-         if(message.content.toLowerCase().startsWith(prefix + "boi")) {
-        if(message.author.id !== "200627218299355136") return;
-        message.channel.send(`https://cdn.discordapp.com/attachments/187017643448991745/338753823327780864/ced43ba6412014e7ce13422536713805fb37dce4.png`)
-
-      } else
-      
-      if(message.content.toLowerCase().startsWith(prefix + "testing")) {
-        if(message.author.id !== "200627218299355136") return;
-          message.channel.send("Hello Ladies and Gentlemen, Welcome to the Offical Galaxy Discord server. You can use this place to talk or discuss all things Galaxy here! However, to ensure that the server doesn't get out of control, we have set some Guidelines that you must follow. Failure to abide by these rules may result in warnings, mutes, kicks or even bans.\n\n**Rule 1: No 18+ Content**\nNo Porn/Hentai/Gore, Anything considered NSFW or borderline NSFW. This includes any content posted and avatars, and DMing any users said content.\n\n**Rule 2: No Drama**\nNo arguing in here. Debates about the game and possible suggestions are fine, as long as they don't get out of hand. Once they do, you either drop it or take it to DMs\n\n**Rule 3: No Racism**\nRacism will not be tolerated on this server. This includes pictures, memes, avatars\n\n**Rule 4: Keep content in their relevant channels**\nNo bot commands, with the exception of mods and admins, may be used outside of <#204966054462619650>, Dumping pictures are to be in <#254780529986109440>, Suggestions and the use of g!idea is to be kept in <#336903856032317440>\n\n**Rule 5: No Profanity:**\nSwearing is now completely banned. Attempting to override/bypass the bots will result in a mute, so don't do it.\n\n**Rule 6: Advertising**\nPosting a youtube video of yours once is acceptable, and you may advertise if approved by an admin. Advertising here without permission, however, will be met with warnings and mutes.\n\n**Rule 7: No Spam**\nSpamming/Raiding will be met with a mute. Just don't do it.\n\n**Rule 8: Tagging**\nDon't spam tag anyone, or tag Admins or Moderators in <#338453701767200769>.\nYou may tag moderators if there are severe rules being broken, and you may tag Admins if there is a bug with the game that needs fixing (like invisible bases).\n\n**Rule 9: Loopholes**\nThere are no loopholes. Moderators and Admins may mute you if they feel it's necessary.\n\nJust follow these rules and you will not be in any trouble :slight_smile:")
-        
-        } else
 
         if(message.content.startsWith(prefix + "kick")) {
           if(message.guild.id !== "204965774618656769") return;
@@ -4531,7 +4487,7 @@ bot.channels.get('350966037958623233').send({embed: {
     let member = message.mentions.members.first();
         if(message.mentions.users.size < 1) return message.channel.send('You must mention someone to kick')
     if(!member.kickable) return message.reply("Can't kick this user.");
-    if(member.id === "200627218299355136") return message.reply("Can't kick this user.")
+    if(member.id === "AUTHORID") return message.reply("Can't kick this user.")
     
     let reason = args.slice(2).join(' ');
     if(!reason)
@@ -4595,7 +4551,7 @@ bot.channels.get('350966037958623233').send({embed: {
     let member = message.mentions.members.first();
         if(message.mentions.users.size < 1) return message.channel.send('You must mention someone to warn')
     if(!member.kickable) return message.reply("Can't warn this user.");
-    if(member.id === "200627218299355136") return message.reply("Can't warn this user.")
+    if(member.id === "AUTHORID") return message.reply("Can't warn this user.")
     
     let reason = args.slice(2).join(' ');
     if(!reason)
@@ -4653,6 +4609,27 @@ bot.channels.get('350966037958623233').send({embed: {
         member.removeRole(mutedRole.id);
       }, ms(time));
   
+	  
+	  } else
+  
+   
+  
+  if(message.content.toLowerCase().startsWith(prefix + 'trello')) {
+    let trelloTitle = arg2[0];
+    let trelloContent = arg2.slice(1).join(' ');
+    let trelloListID = 'LISTID'
+      if(message.author.id !== "AUTHORID") return message.channel.send(`This command is restricted.`);
+trello.addCard(`${trelloTitle.substring(7,999)}`, `${trelloContent}`, trelloListID,
+              function  (error, trelloCard) {
+  if (error) {
+    console.log(`Could not add Trello Card`, error);
+    message.channel.send(`Failed to send Trello Card, Error: \`${error}\``);
+  } else {
+    console.log(`Trello card`, trelloCard)
+    message.channel.send(`Trello card status: \`${trelloTitle}\``);
+  }
+})
+  //https://api.trello.com/1/boards/BOARDID/lists
   
     } else if(message.content.toLowerCase().startsWith(prefix + "stat")) {
         const duration = moment.duration(bot.uptime).format(" D [days], H [hrs], m [mins], s [secs]");
